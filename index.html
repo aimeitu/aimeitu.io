@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iBeauty - 防失联导航</title>
+    <title>爱美图 - 防失联导航</title>
     <style>
         :root {
-            --primary-pink: #ffc0cb; /* 浅粉色 */
-            --soft-pink: #fff0f5;    /* 薰衣草红/极浅粉 */
-            --text-color: #555;
+            --primary-pink: #ff69b4; /* 深粉色，用于重点文字 */
+            --light-pink: #ffc0cb;   /* 浅粉色 */
+            --soft-pink: #fff0f5;    /* 极浅粉背景 */
+            --text-color: #444;
             --status-green: #70e000;
             --status-orange: #ff9f1c;
         }
@@ -26,129 +27,129 @@
 
         .container {
             background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(255, 182, 193, 0.2);
             text-align: center;
             width: 90%;
-            max-width: 450px;
+            max-width: 500px;
         }
 
         h1 {
-            color: #ff69b4;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            color: var(--primary-pink);
+            font-size: 2.8rem; /* 更大的标题 */
+            margin: 0;
+            letter-spacing: 2px;
         }
 
         .subtitle {
-            font-size: 0.9rem;
-            color: #888;
+            font-size: 1.1rem;
+            color: #aaa;
+            margin-top: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* 状态容器：去掉了边框，改用更淡的背景区分 */
+        .status-box {
+            background-color: #fffafa; 
+            border-radius: 16px;
+            padding: 1.5rem;
             margin-bottom: 2rem;
         }
 
-        /* 状态卡片样式 */
-        .status-box {
-            background-color: #fafafa;
-            border: 1px solid var(--primary-pink);
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
+        .status-text {
+            font-size: 1.3rem; /* 更大的状态文字 */
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
         }
 
         .status-indicator {
             display: inline-block;
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            margin-right: 8px;
+            margin-right: 12px;
         }
 
-        /* --- 状态切换逻辑 --- */
-        /* 如果要显示“维护中”，请注释掉下面这行 .status-online 的样式，并取消 .status-maintenance 的注释 */
-        .status-online { display: block; }
+        .online-dot { background-color: var(--status-green); box-shadow: 0 0 10px var(--status-green); }
+        .offline-dot { background-color: var(--status-orange); box-shadow: 0 0 10px var(--status-orange); }
+
+        /* --- 状态切换显示逻辑 --- */
+        .status-online { display: flex; }
         .status-maintenance { display: none; }
 
-        /* 如果需要手动强制切换，可以在这里修改 display 属性 */
-        /* --- 结束 --- */
-
-        .online-dot { background-color: var(--status-green); box-shadow: 0 0 8px var(--status-green); }
-        .offline-dot { background-color: var(--status-orange); box-shadow: 0 0 8px var(--status-orange); }
-
-        .url-display {
-            background: #fff5f7;
+        /* URL 样式：醒目且可点击 */
+        .url-link {
+            display: block;
+            font-size: 1.8rem; /* URL 极大显示 */
+            font-family: 'Microsoft YaHei', sans-serif;
+            color: var(--primary-pink);
+            text-decoration: none;
             padding: 10px;
-            border-radius: 8px;
-            font-family: monospace;
+            transition: all 0.3s ease;
             word-break: break-all;
-            color: #ff69b4;
-            margin-top: 10px;
-            border: 1px dashed var(--primary-pink);
+            font-weight: bold;
+        }
+
+        .url-link:hover {
+            color: #ff1493;
+            transform: scale(1.05);
         }
 
         .footer-info {
             margin-top: 2rem;
-            font-size: 0.85rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #888;
         }
 
-        .btn {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 10px 25px;
-            background-color: var(--primary-pink);
-            color: white;
+        .email-link {
+            color: #777;
             text-decoration: none;
-            border-radius: 25px;
-            transition: transform 0.2s;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            background-color: #ffb6c1;
+            border-bottom: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>iBeauty</h1>
-    <p class="subtitle">让美丽永远在线 ✨</p>
+    <h1>爱美图</h1>
+    <p class="subtitle">防失联导航</p>
 
     <div class="status-box">
-        <div id="status-online-ui" class="status-online">
+        <div id="status-online-ui" class="status-text status-online">
             <span class="status-indicator online-dot"></span>
-            <strong>当前状态：服务正常运行中</strong>
+            当前状态：正常运行中
         </div>
 
-        <div id="status-offline-ui" class="status-maintenance">
+        <div id="status-offline-ui" class="status-text status-maintenance">
             <span class="status-indicator offline-dot"></span>
-            <strong>当前状态：服务器维护中</strong>
+            当前状态：服务器维护中
         </div>
-
-        <div class="url-display" id="current-url">加载中...</div>
+		<br>
+        <a href="https://aimeitu01.com" class="url-link">最新域名：👇🏻<br><br>aimeitu01.com</a>
     </div>
 
     <div class="footer-info">
-        <p>建议将本页加入收藏夹 (Ctrl+D)，<br>以防走丢。如有疑问，请联系管理层。</p>
+        <p>
+            建议将本页加入收藏夹 <b>(Ctrl+D)</b>，以防走丢。<br>
+            如有疑问，请联系：<br>
+            <a href="mailto:hongchenkezhan@protonmail.com" class="email-link">hongchenkezhan@protonmail.com</a>
+        </p>
     </div>
-
-    <a href="javascript:location.reload();" class="btn">刷新页面</a>
 </div>
 
 <script>
-    // 自动获取当前URL
-    document.getElementById('current-url').innerText = window.location.href;
 
-    /**
-     * 【管理员修改说明】
-     * 想要修改网站状态？
-     * 只需将下面变量 isRunning 的值从 true 改为 false 即可。
-     */
-    const isRunning = true; // true = 运行中, false = 维护中
+    const isRunning = true; 
 
+    // 执行切换逻辑
     if (!isRunning) {
         document.getElementById('status-online-ui').style.display = 'none';
-        document.getElementById('status-offline-ui').style.display = 'block';
+        document.getElementById('status-offline-ui').style.display = 'flex';
     }
 </script>
 
