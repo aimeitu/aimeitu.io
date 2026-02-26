@@ -1,1 +1,156 @@
-<p> test </p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iBeauty - 防失联导航</title>
+    <style>
+        :root {
+            --primary-pink: #ffc0cb; /* 浅粉色 */
+            --soft-pink: #fff0f5;    /* 薰衣草红/极浅粉 */
+            --text-color: #555;
+            --status-green: #70e000;
+            --status-orange: #ff9f1c;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--soft-pink);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 450px;
+        }
+
+        h1 {
+            color: #ff69b4;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+
+        /* 状态卡片样式 */
+        .status-box {
+            background-color: #fafafa;
+            border: 1px solid var(--primary-pink);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        /* --- 状态切换逻辑 --- */
+        /* 如果要显示“维护中”，请注释掉下面这行 .status-online 的样式，并取消 .status-maintenance 的注释 */
+        .status-online { display: block; }
+        .status-maintenance { display: none; }
+
+        /* 如果需要手动强制切换，可以在这里修改 display 属性 */
+        /* --- 结束 --- */
+
+        .online-dot { background-color: var(--status-green); box-shadow: 0 0 8px var(--status-green); }
+        .offline-dot { background-color: var(--status-orange); box-shadow: 0 0 8px var(--status-orange); }
+
+        .url-display {
+            background: #fff5f7;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            word-break: break-all;
+            color: #ff69b4;
+            margin-top: 10px;
+            border: 1px dashed var(--primary-pink);
+        }
+
+        .footer-info {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 10px 25px;
+            background-color: var(--primary-pink);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #ffb6c1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>iBeauty</h1>
+    <p class="subtitle">让美丽永远在线 ✨</p>
+
+    <div class="status-box">
+        <div id="status-online-ui" class="status-online">
+            <span class="status-indicator online-dot"></span>
+            <strong>当前状态：服务正常运行中</strong>
+        </div>
+
+        <div id="status-offline-ui" class="status-maintenance">
+            <span class="status-indicator offline-dot"></span>
+            <strong>当前状态：服务器维护中</strong>
+        </div>
+
+        <div class="url-display" id="current-url">加载中...</div>
+    </div>
+
+    <div class="footer-info">
+        <p>建议将本页加入收藏夹 (Ctrl+D)，<br>以防走丢。如有疑问，请联系管理层。</p>
+    </div>
+
+    <a href="javascript:location.reload();" class="btn">刷新页面</a>
+</div>
+
+<script>
+    // 自动获取当前URL
+    document.getElementById('current-url').innerText = window.location.href;
+
+    /**
+     * 【管理员修改说明】
+     * 想要修改网站状态？
+     * 只需将下面变量 isRunning 的值从 true 改为 false 即可。
+     */
+    const isRunning = true; // true = 运行中, false = 维护中
+
+    if (!isRunning) {
+        document.getElementById('status-online-ui').style.display = 'none';
+        document.getElementById('status-offline-ui').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
