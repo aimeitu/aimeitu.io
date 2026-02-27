@@ -3,12 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>爱美图 - 防失联导航</title>
+
+    <!-- ===== 核心SEO标签 ===== -->
+    <title>爱美图aimeitu最新地址发布页 - 最新域名导航 | 官方防失联入口</title>
+    <meta name="description" content="爱美图aimeitu最新网址发布页。这里是爱美图aimeitu官方最新地址导航与防失联入口，实时更新最新可访问域名。建议收藏本页面以防走丢。">
+    <meta name="keywords" content="爱美图aimeitu, 爱美图aimeitu最新地址, 爱美图aimeitu发布页, 爱美图aimeitu导航, 爱美图aimeitu官网, 防失联导航">
+    <meta name="author" content="爱美图">
+
+    <!-- 搜索引擎抓取控制 -->
+    <meta name="robots" content="index, follow">
+
+    <!-- 规范化URL（非常重要） -->
+    <link rel="canonical" href="https://aimeitu.github.io/">
+
+    <!-- Open Graph（微信/QQ/社交平台分享优化） -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="爱美图aimeitu最新地址发布页">
+    <meta property="og:description" content="爱美图aimeitu官方最新地址导航与防失联入口，实时更新可访问域名。">
+    <meta property="og:url" content="https://aimeitu.github.io/">
+    <meta property="og:site_name" content="爱美图aimeitu">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="爱美图aimeitu最新地址发布页">
+    <meta name="twitter:description" content="爱美图aimeitu官方最新地址导航入口">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
     <style>
         :root {
-            --primary-pink: #ff69b4; /* 深粉色，用于重点文字 */
-            --light-pink: #ffc0cb;   /* 浅粉色 */
-            --soft-pink: #fff0f5;    /* 极浅粉背景 */
+            --primary-pink: #ff69b4;
+            --light-pink: #ffc0cb;
+            --soft-pink: #fff0f5;
             --text-color: #444;
             --status-green: #70e000;
             --status-orange: #ff9f1c;
@@ -25,6 +53,12 @@
             min-height: 100vh;
         }
 
+        main {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
         .container {
             background: white;
             padding: 3rem 2rem;
@@ -32,24 +66,24 @@
             box-shadow: 0 15px 35px rgba(255, 182, 193, 0.2);
             text-align: center;
             width: 90%;
-            max-width: 500px;
+            max-width: 520px;
         }
 
         h1 {
             color: var(--primary-pink);
-            font-size: 2.8rem; /* 更大的标题 */
+            font-size: 2.6rem;
             margin: 0;
             letter-spacing: 2px;
         }
 
-        .subtitle {
-            font-size: 1.1rem;
+        h2 {
+            font-size: 1rem;
             color: #aaa;
             margin-top: 0.5rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: normal;
         }
 
-        /* 状态容器：去掉了边框，改用更淡的背景区分 */
         .status-box {
             background-color: #fffafa; 
             border-radius: 16px;
@@ -58,7 +92,7 @@
         }
 
         .status-text {
-            font-size: 1.3rem; /* 更大的状态文字 */
+            font-size: 1.2rem;
             font-weight: 600;
             display: flex;
             justify-content: center;
@@ -67,7 +101,6 @@
         }
 
         .status-indicator {
-            display: inline-block;
             width: 12px;
             height: 12px;
             border-radius: 50%;
@@ -77,14 +110,12 @@
         .online-dot { background-color: var(--status-green); box-shadow: 0 0 10px var(--status-green); }
         .offline-dot { background-color: var(--status-orange); box-shadow: 0 0 10px var(--status-orange); }
 
-        /* --- 状态切换显示逻辑 --- */
         .status-online { display: flex; }
         .status-maintenance { display: none; }
 
-        /* URL 样式：醒目且可点击 */
         .url-link {
             display: block;
-            font-size: 1.8rem; /* URL 极大显示 */
+            font-size: 1.7rem;
             font-family: 'Microsoft YaHei', sans-serif;
             color: var(--primary-pink);
             text-decoration: none;
@@ -112,17 +143,33 @@
             border-bottom: 1px solid #ddd;
         }
     </style>
+
+    <!-- 结构化数据（增强搜索展示） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "爱美图",
+      "url": "https://aimeitu.github.io/",
+      "description": "爱美图aimeitu最新地址发布页与官方导航入口"
+    }
+    </script>
+
 </head>
 <body>
 
+<main>
 <div class="container">
-    <h1>爱美图</h1>
-    <p class="subtitle">防失联导航</p>
 
-    <div class="status-box">
+    <header>
+        <h1>爱美图</h1>
+        <h2>最新地址发布页 · 官方防失联导航入口</h2>
+    </header>
+
+    <section class="status-box">
         <div id="status-online-ui" class="status-text status-online">
             <span class="status-indicator online-dot"></span>
-            当前状态：正常运行中
+            当前状态：网站正常运行
         </div>
 
         <div id="status-offline-ui" class="status-text status-maintenance">
@@ -130,23 +177,29 @@
             当前状态：服务器维护中
         </div>
 		<br>
-        <a href="https://aimeitu01.com" class="url-link">最新域名：👇🏻<br><br>aimeitu01.com</a>
-    </div>
+        <a href="https://aimeitu01.com"
+           class="url-link"
+           title="爱美图最新可访问域名">
+           最新域名：👇🏻<br><br>aimeitu01.com
+        </a>
+    </section>
 
-    <div class="footer-info">
+    <footer class="footer-info">
         <p>
-            建议将本页加入收藏夹 <b>(Ctrl+D)</b>，以防走丢。<br>
-            如有疑问，请联系：<br>
-            <a href="mailto:hongchenkezhan@protonmail.com" class="email-link">hongchenkezhan@protonmail.com</a>
+            建议收藏本页面（Ctrl+D）以防失联。<br>
+            本页面会实时更新爱美图最新地址与可访问入口。<br><br>
+            联系邮箱：
+            <a href="mailto:hongchenkezhan@protonmail.com" class="email-link">
+                hongchenkezhan@protonmail.com
+            </a>
         </p>
-    </div>
+    </footer>
+
 </div>
+</main>
 
 <script>
-
-    const isRunning = true; 
-
-    // 执行切换逻辑
+    const isRunning = true;
     if (!isRunning) {
         document.getElementById('status-online-ui').style.display = 'none';
         document.getElementById('status-offline-ui').style.display = 'flex';
